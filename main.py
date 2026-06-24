@@ -9,6 +9,7 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    ship = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
     while True:
         log_state()
         clock = pygame.time.Clock()
@@ -19,8 +20,10 @@ def main():
         dt = clock.tick(60) / 1000
         screen.fill("black")
 
-        ship = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
+    #Player logic / functions
+        ship.update(dt)
         ship.draw(screen)
+        
         
         pygame.display.flip()
 
